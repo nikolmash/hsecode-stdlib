@@ -11,7 +11,7 @@ func NthPrime(n int) int {
 		return smallnum[n-1]
 	}
 	lnn := math.Log(float64(n))
-	upper := int(float64(n)*(lnn+math.Log(lnn))) + 10
+	upper := int(float64(n)*(lnn+math.Log(lnn))) + 3
 	arr := make([]bool, upper/2)
 	for i := 3; i*i <= upper; i += 2 {
 		for j := i * i; j <= upper; j += 2 * i {
