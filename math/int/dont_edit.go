@@ -14,7 +14,7 @@ func NthPrime(n int) int {
 	}
 	smallnum := []int{2, 3, 5, 7, 11, 13}
 	if n < 6 {
-		return smallnum[n-1]
+		return smallnum[int(n)-1]
 	}
 	upper := int(float64(n)*math.Log(float64(n)) + float64(n)*math.Log(math.Log(float64(n))))
 	arr := make([]bool, upper+10)
@@ -24,13 +24,13 @@ func NthPrime(n int) int {
 			arr[j] = true
 		}
 	}
-	res := 0
+	var res int = 0
 	for ind, val := range arr {
 		if !val && ind > 1 {
 			res += 1
 		}
 		if res == n {
-			return ind
+			return int(ind)
 		}
 	}
 	panic("something wrong")

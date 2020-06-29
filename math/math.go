@@ -11,9 +11,9 @@ func NthPrime(n ValueType) ValueType {
 	if n < 1 {
 		panic("n is less that 1")
 	}
-	smallnum := []int{2, 3, 5, 7, 11, 13}
+	smallnum := []ValueType{2, 3, 5, 7, 11, 13}
 	if n < 6 {
-		return smallnum[n-1]
+		return smallnum[int(n)-1]
 	}
 	upper := int(float64(n)*math.Log(float64(n)) + float64(n)*math.Log(math.Log(float64(n))))
 	arr := make([]bool, upper+10)
@@ -23,13 +23,13 @@ func NthPrime(n ValueType) ValueType {
 			arr[j] = true
 		}
 	}
-	res := 0
+	var res ValueType = 0
 	for ind, val := range arr {
 		if !val && ind > 1 {
 			res += 1
 		}
 		if res == n {
-			return ind
+			return ValueType(ind)
 		}
 	}
 	panic("something wrong")
