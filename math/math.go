@@ -1,17 +1,12 @@
 package math
 
-// good IDEs will put the import statement automatically
-//go:generate genny -in=$GOFILE -out=int/dont_edit.go gen "ValueType=int"
-import "github.com/cheekybits/genny/generic"
 import "math"
 
-type ValueType generic.Number
-
-func NthPrime(n ValueType) ValueType {
+func NthPrime(n int) int {
 	if n < 1 {
 		panic("n is less that 1")
 	}
-	smallnum := []ValueType{2, 3, 5, 7, 11, 13}
+	smallnum := []int{2, 3, 5, 7, 11, 13}
 	if n < 6 {
 		return smallnum[int(n)-1]
 	}
@@ -23,13 +18,13 @@ func NthPrime(n ValueType) ValueType {
 			arr[j] = true
 		}
 	}
-	var res ValueType = 0
+	res := 0
 	for ind, val := range arr {
 		if !val && ind > 1 {
 			res += 1
 		}
 		if res == n {
-			return ValueType(ind)
+			return ind
 		}
 	}
 	panic("something wrong")
