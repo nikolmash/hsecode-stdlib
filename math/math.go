@@ -14,8 +14,10 @@ func NthPrime(n int) int {
 	upper := int(float64(n)*(lnn+math.Log(lnn))) + 20
 	arr := make([]bool, upper/2)
 	for i := 3; i*i <= upper; i += 2 {
-		for j := i * i; j <= upper; j += 2 * i {
-			arr[(j-3)/2] = true
+		if !arr[(i-3)/2] {
+			for j := i * i; j <= upper; j += 2 * i {
+				arr[(j-3)/2] = true
+			}
 		}
 	}
 	res := 1
