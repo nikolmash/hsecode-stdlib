@@ -13,7 +13,7 @@ func Sort(data []uint64) {
 			C[r]++
 		}
 		position = C[0]
-		for j := 1; j < 255; j++ {
+		for j := 1; j < 256; j++ {
 			position = C[j]
 			C[j] = C[j-1] + position
 		}
@@ -22,6 +22,6 @@ func Sort(data []uint64) {
 			sorted[C[r]-1] = data[j]
 			copy_data[j] >>= 8
 		}
+		copy(data, sorted)
 	}
-	copy(data, sorted)
 }
