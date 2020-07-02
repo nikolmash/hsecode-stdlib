@@ -19,7 +19,7 @@ func (nda *NDArray) Idx(indicies ...int) int {
 		panic("wrong dimension")
 	}
 	for i := range indicies {
-		if indicies[i] > nda.shape[i] {
+		if indicies[i] >= nda.shape[i] {
 			panic("one of the indexes are out of range")
 		}
 	}
