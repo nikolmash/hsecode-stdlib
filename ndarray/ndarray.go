@@ -7,7 +7,7 @@ type NDArray struct {
 func New(shape ...int) *NDArray {
 	for _, dim := range shape {
 		if dim < 0 {
-			panic("one of the dimensions are negative")
+			panic("one of the dimensions are negative!")
 		}
 	}
 	N := NDArray{shape: shape}
